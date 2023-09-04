@@ -30,7 +30,9 @@ public class WordManager {
     public void start(){
         while(true) {
             int menu = selectMenu();
-            if(menu == 0) break;
+            if(menu == 0) {
+                break;
+            }
             if(menu == 4){
                 wordCRUD.addWord();
             }
@@ -38,5 +40,6 @@ public class WordManager {
                 wordCRUD.listAll();
             }
         }
+        System.out.println("\n프로그램 종료!!");
     }
 }
