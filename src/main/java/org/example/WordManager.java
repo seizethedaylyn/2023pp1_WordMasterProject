@@ -1,6 +1,9 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class WordManager {
+    Scanner s = new Scanner(System.in);
     public void selectMenu(){
         System.out.print("*** 영단어 마스터 ***\n" +
                 "******************\n" +
@@ -17,6 +20,6 @@ public class WordManager {
     }
 
     public void start(){
-        System.out.println("WordManager!!!");
+        selectMenu();
     }
 }
