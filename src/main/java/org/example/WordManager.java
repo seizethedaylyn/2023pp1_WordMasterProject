@@ -4,7 +4,9 @@ import java.util.Scanner;
 
 public class WordManager {
     Scanner s = new Scanner(System.in);
-    public void selectMenu(){
+    WordCRUD wordCRUD;
+
+    public int selectMenu(){
         System.out.print("*** 영단어 마스터 ***\n" +
                 "******************\n" +
                 "1. 모든 단어 보기\n" +
@@ -17,9 +19,24 @@ public class WordManager {
                 "0. 나가기\n" +
                 "******************\n" +
                 "=> 원하는 메뉴는? ");
+        return s.nextInt();
+    }
+
+    WordManager(){
+        wordCRUD = new WordCRUD(s);
+
     }
 
     public void start(){
-        selectMenu();
+        while(true) {
+            int menu = selectMenu();
+            if(menu == 0) break;
+            if(menu == 4){
+                wordCRUD.addWord();
+            }
+            else if(menu == 1){
+                //list
+            }
+        }
     }
 }
