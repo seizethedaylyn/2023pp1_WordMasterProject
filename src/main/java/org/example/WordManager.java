@@ -39,6 +39,12 @@ public class WordManager {
             else if(menu == 1){
                 wordCRUD.listAll();
             }
+            else if(menu == 5){
+                wordCRUD.updateitem(s);
+            }
+            else if(menu == 6){
+                //wordCRUD.delete();
+            }
         }
         System.out.println("\n프로그램 종료!!");
     }
