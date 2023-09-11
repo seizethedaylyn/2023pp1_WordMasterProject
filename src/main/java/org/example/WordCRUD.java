@@ -35,7 +35,7 @@ public class WordCRUD implements ICRUD{
         return 0;
     }
 
-    public int updateItem(Object obj) {
+    public void updateItem(Object obj) {
         System.out.print("=> 수정할 단어 검색 : ");
         String keyword = s.next(); //공백 허용 안함
         ArrayList<Integer> idlist = this.listAll(keyword);
@@ -54,7 +54,6 @@ public class WordCRUD implements ICRUD{
         word.setMeaning(meaning);
         //뜻 변경
         System.out.println("\n단어가 수정되었습니다!\n");
-        return 0;
     }
 
     @Override
@@ -97,4 +96,22 @@ public class WordCRUD implements ICRUD{
         return idlist;
     }
 
+    public void deleteItem() {
+        System.out.print("=> 삭제할 단어 검색 : ");
+        String keyword = s.next(); //공백 허용 안함
+        ArrayList<Integer> idlist = this.listAll(keyword);
+
+        System.out.print("=> 삭제할 번호 선택 : ");
+        int id = s.nextInt();
+
+        s.nextLine(); //엔터 저장
+
+        System.out.print("정말로 삭제하시겠습니까? (Y/N): ");
+        String ans = s.next();
+        if(ans.equalsIgnoreCase("y")){
+            list.remove((int)idlist.get(id - 1)); //remove는 객체를 넣든지, paramete로 정수로 몇번째인지 넣어야함, integer를 정수로 바꿔줌
+            System.out.println("\n단어가 삭제되었습니다!\n");
+        } else
+            System.out.println("\n취소되었습니다!\n");
+    }
 }
