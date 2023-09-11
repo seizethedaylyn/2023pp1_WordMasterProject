@@ -24,7 +24,7 @@ public class WordCRUD implements ICRUD{
         return new Word(0, level, word, meaning);
     }
 
-    public void addWord(){
+    public void addItem(){
         Word one = (Word)add();
         list.add(one);
         System.out.println("\n새 단어가 단어장에 추가되었습니다.\n");
@@ -35,7 +35,7 @@ public class WordCRUD implements ICRUD{
         return 0;
     }
 
-    public int updateitem(Object obj) {
+    public int updateItem(Object obj) {
         System.out.print("=> 수정할 단어 검색 : ");
         String keyword = s.next(); //공백 허용 안함
         ArrayList<Integer> idlist = this.listAll(keyword);
