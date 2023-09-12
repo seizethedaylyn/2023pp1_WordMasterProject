@@ -98,6 +98,21 @@ public class WordCRUD implements ICRUD{
         return idlist;
     }
 
+    public void listAll(int level){
+
+        int j = 0;
+        System.out.println("\n--------------------------------");
+        for(int i = 0; i < list.size(); i++){
+            int wlevel = list.get(i).getLevel(); //list에 있는 단어 가져옴
+            if( wlevel != level) continue; //키워드 검색해서 해당 안되면 출력 안함
+
+            System.out.print((j+1) + " ");
+            System.out.println(list.get(i).toString());
+            j++;
+        }
+        System.out.println("--------------------------------\n");
+    }
+
     public void deleteItem() {
         System.out.print("=> 삭제할 단어 검색 : ");
         String keyword = s.next(); //공백 허용 안함
@@ -158,5 +173,11 @@ public class WordCRUD implements ICRUD{
             throw new RuntimeException(e);
         }
 
+    }
+
+    public void searchLevel() {
+        System.out.print("=> 레벨(1: 초급, 2: 중급, 3: 중급) 선택: ");
+        int level = s.nextInt(); //공백 허용 안함
+        this.listAll(level);
     }
 }
