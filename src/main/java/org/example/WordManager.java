@@ -53,7 +53,7 @@ public class WordManager {
                 wordCRUD.searchLevel();
             }
             else if(menu == 3){
-                //wordCRUD.searchWord();
+                wordCRUD.searchWord();
             }
         }
         System.out.println("\n프로그램 종료!!");

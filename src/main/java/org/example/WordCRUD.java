@@ -180,4 +180,10 @@ public class WordCRUD implements ICRUD{
         int level = s.nextInt(); //공백 허용 안함
         this.listAll(level);
     }
+
+    public void searchWord() {
+        System.out.print("=> 검색할 단어 입력 : ");
+        String keyword = s.next(); //공백 허용 안함
+        ArrayList<Integer> idlist = this.listAll(keyword);
+    }
 }
