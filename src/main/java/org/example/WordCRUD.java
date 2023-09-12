@@ -1,11 +1,13 @@
 package org.example;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class WordCRUD implements ICRUD{
     ArrayList<Word> list;
     Scanner s;
+    final String fname = "Dictionary.txt";
 
     WordCRUD(Scanner s){
         list = new ArrayList<>();
@@ -114,4 +116,39 @@ public class WordCRUD implements ICRUD{
         } else
             System.out.println("\n취소되었습니다!\n");
     }
+
+    public void loadFile() {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(fname));
+
+            String line;
+            int count = 0;
+
+            while(true){
+                line = br.readLine();
+                if(line == null) break;
+                String data[] = line.split("\\|");
+                int level = Integer.parseInt(data[0]);
+                String word = data[1];
+                String meaning = data[2];
+                list.add(new Word(0,level,word,meaning));
+                count ++;
+            }
+
+            br.close();
+            System.out.println(count + "개 로딩 완료!");
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+   // public void saveFile() {
+   //     try {
+   //         PrintWriter pr = new PrintWriter(new FileWriter("text.txt"));
+   //     } catch (IOException e) {
+   //         throw new RuntimeException(e);
+   //     }
+
+   // }
 }
