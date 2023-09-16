@@ -16,11 +16,13 @@ public class WordCRUD implements ICRUD{
 
     @Override
     public Object add() {
-        System.out.print("\n=> 난이도(1,2,3) & 새 단어 입력 : ");
+        System.out.print("\n=> 난이도(1,2,3) : ");
         int level = s.nextInt();
+        s.nextLine();
+        System.out.print("=> 새 단어 입력 : ");
         String word = s.nextLine();
 
-        System.out.print("뜻 입력 : ");
+        System.out.print("=> 뜻 입력 : ");
         String meaning = s.nextLine();
 
         return new Word(0, level, word, meaning);
@@ -29,7 +31,7 @@ public class WordCRUD implements ICRUD{
     public void addItem(){
         Word one = (Word)add();
         list.add(one);
-        System.out.println("\n새 단어가 단어장에 추가되었습니다.\n");
+        System.out.println("\n새 단어가 단어장에 추가되었습니다.");
     }
 
     @Override
@@ -38,7 +40,7 @@ public class WordCRUD implements ICRUD{
     }
 
     public void updateItem(Object obj) {
-        System.out.print("=> 수정할 단어 검색 : ");
+        System.out.print("\n=> 수정할 단어 검색 : ");
         String keyword = s.next(); //공백 허용 안함
         ArrayList<Integer> idlist = this.listAll(keyword);
 
@@ -55,7 +57,7 @@ public class WordCRUD implements ICRUD{
         // 0번째 시작이니까 id-1
         word.setMeaning(meaning);
         //뜻 변경
-        System.out.println("\n단어가 수정되었습니다!\n");
+        System.out.println("\n단어가 수정되었습니다!");
     }
 
     @Override
@@ -114,7 +116,7 @@ public class WordCRUD implements ICRUD{
     }
 
     public void deleteItem() {
-        System.out.print("=> 삭제할 단어 검색 : ");
+        System.out.print("\n=> 삭제할 단어 검색 : ");
         String keyword = s.next(); //공백 허용 안함
         ArrayList<Integer> idlist = this.listAll(keyword);
 
@@ -127,9 +129,9 @@ public class WordCRUD implements ICRUD{
         String ans = s.next();
         if(ans.equalsIgnoreCase("y")){
             list.remove((int)idlist.get(id - 1)); //remove는 객체를 넣든지, paramete로 정수로 몇번째인지 넣어야함, integer를 정수로 바꿔줌
-            System.out.println("\n단어가 삭제되었습니다!\n");
+            System.out.println("\n단어가 삭제되었습니다!");
         } else
-            System.out.println("\n취소되었습니다!\n");
+            System.out.println("\n취소되었습니다!");
     }
 
     public void loadFile() {
@@ -151,7 +153,7 @@ public class WordCRUD implements ICRUD{
             }
 
             br.close();
-            System.out.println(count + "개 로딩 완료!");
+            System.out.println(count + "개 로딩 완료!\n");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -167,7 +169,7 @@ public class WordCRUD implements ICRUD{
             }
 
             pr.close();
-            System.out.println("데이터 파일 저장 완료!\n");
+            System.out.println("\n데이터 파일 저장 완료!");
 
         } catch (IOException e) {
             throw new RuntimeException(e);
