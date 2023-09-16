@@ -1,0 +1,6 @@
+3|disassemble|분해하다, 해체하다
+1|cash|현금
+3|heavy|폐기종에 걸린
+1|wrestle|몸싸움을 벌이다
+2|measured|신중한
+1| apple|사과
